@@ -3,6 +3,7 @@ import { svg, createSvgElement } from './ui/index.js';
 import {
 	getCircumference,
 	getSectorWidth,
+	getQtySectors,
 	getRadiusSectors,
 	getValueSectors,
 } from './utils/index.js';
@@ -51,8 +52,9 @@ const createPieChart = (container, charData) => {
 createPieChart(svg, defaultMockData);
 
 svg.addEventListener('click', function () {
-	const radius = getRadiusSectors();
-	const values = getValueSectors();
+	const qty = getQtySectors();
+	const radius = getRadiusSectors(qty);
+	const values = getValueSectors(qty);
 
 	const changetData = defaultMockData.map((item, index) => {
 		return {
@@ -61,6 +63,7 @@ svg.addEventListener('click', function () {
 			value: values[index],
 		};
 	});
+	changetData.splice(qty);
 
 	const children = this.children;
 	Array.from(children).forEach((item) => {

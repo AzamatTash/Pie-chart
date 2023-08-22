@@ -26,12 +26,12 @@ export const defaultMockData = [
 	},
 	{
 		radius: 17,
-		value: 12.5,
+		value: 15,
 		color: '#56ccf2',
 	},
 	{
 		radius: 11,
-		value: 12.5,
+		value: 10,
 		color: '#219653',
 	},
 	{
